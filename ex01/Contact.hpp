@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 10:25:09 by abenamar          #+#    #+#             */
-/*   Updated: 2023/12/05 12:06:12 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/12/05 20:39:28 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ public:
 	void setPhoneNumber(std::string phoneNumber);
 	std::string getDarkestSecret() const;
 	void setDarkestSecret(std::string darkestSecret);
-
 	bool isValid() const;
 
 private:
