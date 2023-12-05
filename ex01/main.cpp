@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 00:18:11 by abenamar          #+#    #+#             */
-/*   Updated: 2023/12/05 20:39:48 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/12/05 21:50:04 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ static int strToIndex(std::string str)
 	int sign;
 	std::size_t n;
 
-	sign = 1;
-	n = 0;
-
 	if (str.length() == 0)
 		return -1;
 
 	if (str.length() == 1)
 		return str.at(0) - '0';
+
+	sign = 1;
+	n = 0;
 
 	if (str.at(0) == '-' || str.at(0) == '+')
 	{
