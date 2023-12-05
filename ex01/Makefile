@@ -6,15 +6,17 @@
 #    By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/04 00:14:17 by abenamar          #+#    #+#              #
-#    Updated: 2023/12/04 00:16:11 by abenamar         ###   ########.fr        #
+#    Updated: 2023/12/05 16:58:39 by abenamar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := my_awesome_phonebook
 
+INCLUDES := -I $(CURDIR)
+
 SRCS := Contact.cpp
 SRCS += PhoneBook.cpp
-SRCS += my_awesome_phonebook.cpp
+SRCS += main.cpp
 
 OBJS := $(SRCS:.cpp=.o)
 
