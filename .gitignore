@@ -30,3 +30,8 @@
 *.exe
 *.out
 *.app
+
+# Project
+megaphone
+my_awesome_phonebook
+account_tests
