@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 20:49:45 by abenamar          #+#    #+#             */
-/*   Updated: 2023/12/04 00:10:00 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/12/05 21:22:45 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int main(int argc, char *argv[])
 	}
 	else
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+
 	std::cout << std::endl;
+
 	return 0;
 }
