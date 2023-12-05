@@ -6,7 +6,7 @@
 #    By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/01 20:32:01 by abenamar          #+#    #+#              #
-#    Updated: 2023/12/01 20:58:21 by abenamar         ###   ########.fr        #
+#    Updated: 2023/12/05 16:54:33 by abenamar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,10 +26,10 @@ CFLAGS += -std=c++98
 RM := rm -f
 
 %.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(INCLUDES) $(LDLIBS)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LDLIBS)
 
 all: $(NAME)
 
