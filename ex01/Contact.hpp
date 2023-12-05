@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 10:25:09 by abenamar          #+#    #+#             */
-/*   Updated: 2023/12/04 22:39:29 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/12/05 12:06:12 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ public:
 	bool isValid() const;
 
 private:
-	std::string _firstName;
-	std::string _lastName;
-	std::string _nickname;
-	std::string _phoneNumber;
-	std::string _darkestSecret;
+	std::string firstName;
+	std::string lastName;
+	std::string nickname;
+	std::string phoneNumber;
+	std::string darkestSecret;
 };
 
 #endif
