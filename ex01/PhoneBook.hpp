@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:00:58 by abenamar          #+#    #+#             */
-/*   Updated: 2023/12/05 12:02:40 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/12/05 20:39:33 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,18 @@ public:
 	PhoneBook();
 	~PhoneBook();
 
-	void addContact();
+	bool addContact();
 	void previewContacts() const;
-	void showContactDetails(int index) const;
+	void showContactInformations(int index) const;
 
 private:
 	int oldestIndex;
 	Contact contacts[8];
 
 	Contact *wipeContact(int index);
+	std::string getContactInfo(std::string const label) const;
+	void showContactInfo(std::string const label,
+						 std::string const info) const;
 	std::string truncate(std::string const str) const;
 };
 
