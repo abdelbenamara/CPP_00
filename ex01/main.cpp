@@ -6,13 +6,13 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 00:18:11 by abenamar          #+#    #+#             */
-/*   Updated: 2023/12/05 21:50:04 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/12/06 18:40:04 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-static int strToIndex(std::string str)
+static int stringToIndex(std::string str)
 {
 	int sign;
 	std::size_t n;
@@ -43,20 +43,51 @@ static int strToIndex(std::string str)
 	return sign * (str.at(n) - '0');
 }
 
-static void addOrSearchContact(PhoneBook *phoneBook, std::string input)
+static void addOrSearchContact(PhoneBook &phoneBook, std::string const &command)
 {
-	if (input == "ADD")
+	std::string line;
+
+	if (command == "ADD")
 	{
-		while (!std::cin.eof() && !phoneBook->addContact())
+		while (std::cin && !std::cin.eof() && !phoneBook.addContact())
 			continue;
+
+		if (std::cin && !std::cin.eof())
+			std::cout << std::endl;
 	}
-	else if (input == "SEARCH")
+	else if (command == "SEARCH")
 	{
-		phoneBook->previewContacts();
+		phoneBook.previewContacts();
 		std::cout << ">>> Enter an index between 0 and 7: ";
-		std::getline(std::cin, input);
-		phoneBook->showContactInformations(strToIndex(input));
+		std::getline(std::cin, line);
+		phoneBook.showContactInformations(stringToIndex(line));
+
+		if (std::cin && !std::cin.eof())
+			std::cout << std::endl;
 	}
+
+	return;
+}
+
+static void runPhoneBook(PhoneBook &phoneBook)
+{
+	std::string line;
+
+	while (std::getline(std::cin, line) && line != "EXIT")
+	{
+		std::cout << std::endl;
+		addOrSearchContact(phoneBook, line);
+
+		if (std::cin.eof())
+			break;
+
+		std::cout << ">>> Enter one command of ADD, SEARCH or EXIT: ";
+	}
+
+	std::cout << std::endl;
+
+	if (line.empty() || (line == "EXIT" && std::cin.eof()))
+		std::cout << std::endl;
 
 	return;
 }
@@ -64,32 +95,20 @@ static void addOrSearchContact(PhoneBook *phoneBook, std::string input)
 int main()
 {
 	PhoneBook phoneBook;
-	std::string input;
 
 	std::cout << "Hello, welcome to My Awesome PhoneBook !" << std::endl;
 	std::cout << std::endl;
 	phoneBook.previewContacts();
 	std::cout << std::endl;
-	input = "";
-
-	while (!std::cin.eof() && input != "EXIT")
-	{
-		if (input == "ADD" || input == "SEARCH")
-			std::cout << std::endl;
-
-		std::cout << ">>> Enter one command of ADD, SEARCH or EXIT: ";
-		std::getline(std::cin, input);
-		std::cout << std::endl;
-		addOrSearchContact(&phoneBook, input);
-	}
+	std::cout << ">>> Enter one command of ADD, SEARCH or EXIT: ";
+	runPhoneBook(phoneBook);
 
 	if (std::cin.eof())
 	{
-		std::cout << std::endl;
 		std::cerr << "Warning: no more entries (`EOF' reached)" << std::endl;
+		std::cout << std::endl;
 	}
 
-	std::cout << std::endl;
 	std::cout << "Your contacts are lost forever, bye !" << std::endl;
 
 	return 0;
