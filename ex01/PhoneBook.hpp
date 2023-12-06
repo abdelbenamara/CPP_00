@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:00:58 by abenamar          #+#    #+#             */
-/*   Updated: 2023/12/05 20:39:33 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/12/06 18:23:00 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ private:
 	int oldestIndex;
 	Contact contacts[8];
 
-	Contact *wipeContact(int index);
+	Contact &wipeContact(int index);
 	std::string getContactInfo(std::string const label) const;
 	void showContactInfo(std::string const label,
 						 std::string const info) const;
