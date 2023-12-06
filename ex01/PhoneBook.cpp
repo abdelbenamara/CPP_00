@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:08:51 by abenamar          #+#    #+#             */
-/*   Updated: 2023/12/05 20:39:36 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/12/06 18:24:24 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,29 +24,31 @@ PhoneBook::~PhoneBook()
 
 bool PhoneBook::addContact()
 {
-	Contact *contact;
+	Contact &contact = this->wipeContact(this->oldestIndex);
 
-	contact = this->wipeContact(this->oldestIndex);
-	contact->setFirstName(this->getContactInfo("first name"));
-	contact->setLastName(this->getContactInfo("last name"));
-	contact->setNickname(this->getContactInfo("nickname"));
-	contact->setPhoneNumber(this->getContactInfo("phone number"));
-	contact->setDarkestSecret(this->getContactInfo("darkest secret"));
+	contact.setFirstName(this->getContactInfo("first name"));
+	contact.setLastName(this->getContactInfo("last name"));
+	contact.setNickname(this->getContactInfo("nickname"));
+	contact.setPhoneNumber(this->getContactInfo("phone number"));
+	contact.setDarkestSecret(this->getContactInfo("darkest secret"));
 
-	if (contact->isValid())
+	if (contact.isValid())
 	{
 		this->oldestIndex = (this->oldestIndex + 1) % 8;
+
+		if (!std::cin || std::cin.eof())
+			std::cout << std::endl;
 
 		return true;
 	}
 
-	if (std::cin.eof())
+	if (!std::cin || std::cin.eof())
 		std::cout << std::endl;
 
 	std::cout << std::endl;
 	std::cerr << "Error: contact cannot have empty fields !" << std::endl;
 
-	if (!std::cin.eof())
+	if (std::cin && !std::cin.eof())
 		std::cout << std::endl;
 
 	return false;
@@ -54,6 +56,9 @@ bool PhoneBook::addContact()
 
 void PhoneBook::previewContacts() const
 {
+	if (!std::cin || std::cin.eof())
+		std::cout << std::endl;
+
 	std::cout << std::right << std::setfill('-');
 	std::cout << std::setw(45) << "" << std::endl;
 	std::cout << "|     index|first name| last name|  nickname|" << std::endl;
@@ -75,7 +80,7 @@ void PhoneBook::previewContacts() const
 
 void PhoneBook::showContactInformations(int index) const
 {
-	if (std::cin.eof())
+	if (!std::cin || std::cin.eof())
 		std::cout << std::endl;
 
 	if (index < 0 || 7 < index)
@@ -109,7 +114,7 @@ void PhoneBook::showContactInformations(int index) const
 	return;
 }
 
-Contact *PhoneBook::wipeContact(int index)
+Contact &PhoneBook::wipeContact(int index)
 {
 	this->contacts[index].setFirstName("");
 	this->contacts[index].setLastName("");
@@ -117,21 +122,21 @@ Contact *PhoneBook::wipeContact(int index)
 	this->contacts[index].setPhoneNumber("");
 	this->contacts[index].setDarkestSecret("");
 
-	return &this->contacts[index];
+	return this->contacts[index];
 }
 
 std::string PhoneBook::getContactInfo(std::string const label) const
 {
-	std::string input;
+	std::string line;
 
-	if (!std::cin.eof())
+	if (std::cin && !std::cin.eof())
 	{
 		std::cout << std::right << std::setfill(' ');
 		std::cout << std::setw(14) << label << ": ";
-		std::getline(std::cin, input);
+		std::getline(std::cin, line);
 	}
 
-	return input;
+	return line;
 }
 
 void PhoneBook::showContactInfo(std::string const label,
