@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:08:51 by abenamar          #+#    #+#             */
-/*   Updated: 2023/12/06 18:24:24 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/12/12 09:38:00 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,7 @@ Contact &PhoneBook::wipeContact(int index)
 
 std::string PhoneBook::getContactInfo(std::string const label) const
 {
+	std::locale loc;
 	std::string line;
 
 	if (std::cin && !std::cin.eof())
@@ -134,6 +135,12 @@ std::string PhoneBook::getContactInfo(std::string const label) const
 		std::cout << std::right << std::setfill(' ');
 		std::cout << std::setw(14) << label << ": ";
 		std::getline(std::cin, line);
+
+		for (std::size_t i = 0; i < line.length(); ++i)
+		{
+			if (!std::isprint(line.at(i), loc))
+				line.at(i) = '?';
+		}
 	}
 
 	return line;
