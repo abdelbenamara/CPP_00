@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:00:58 by abenamar          #+#    #+#             */
-/*   Updated: 2023/12/06 18:23:00 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/12/12 09:35:23 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iomanip>
 #include <iostream>
+#include <locale>
 #include <string>
 #include "Contact.hpp"
 
