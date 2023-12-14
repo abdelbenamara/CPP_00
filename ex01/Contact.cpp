@@ -6,27 +6,27 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 10:16:27 by abenamar          #+#    #+#             */
-/*   Updated: 2023/12/05 12:06:12 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/12/14 12:58:19 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-Contact::Contact() : firstName(""),
-					 lastName(""),
-					 nickname(""),
-					 phoneNumber(""),
-					 darkestSecret("")
+Contact::Contact(void) : firstName(""),
+						 lastName(""),
+						 nickname(""),
+						 phoneNumber(""),
+						 darkestSecret("")
 {
 	return;
 }
 
-Contact::~Contact()
+Contact::~Contact(void)
 {
 	return;
 }
 
-std::string Contact::getFirstName() const
+std::string Contact::getFirstName(void) const
 {
 	return this->firstName;
 }
@@ -38,7 +38,7 @@ void Contact::setFirstName(std::string firstName)
 	return;
 }
 
-std::string Contact::getLastName() const
+std::string Contact::getLastName(void) const
 {
 	return this->lastName;
 }
@@ -50,7 +50,7 @@ void Contact::setLastName(std::string lastName)
 	return;
 }
 
-std::string Contact::getNickname() const
+std::string Contact::getNickname(void) const
 {
 	return this->nickname;
 }
@@ -62,7 +62,7 @@ void Contact::setNickname(std::string nickname)
 	return;
 }
 
-std::string Contact::getPhoneNumber() const
+std::string Contact::getPhoneNumber(void) const
 {
 	return this->phoneNumber;
 }
@@ -74,7 +74,7 @@ void Contact::setPhoneNumber(std::string phoneNumber)
 	return;
 }
 
-std::string Contact::getDarkestSecret() const
+std::string Contact::getDarkestSecret(void) const
 {
 	return this->darkestSecret;
 }
@@ -86,7 +86,7 @@ void Contact::setDarkestSecret(std::string darkestSecret)
 	return;
 }
 
-bool Contact::isValid() const
+bool Contact::isValid(void) const
 {
 	if (this->firstName.empty() ||
 		this->lastName.empty() ||
