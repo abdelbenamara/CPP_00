@@ -6,12 +6,12 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:00:58 by abenamar          #+#    #+#             */
-/*   Updated: 2023/12/12 09:35:23 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/12/14 13:00:45 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#ifndef __PHONEBOOK_HPP__
+#define __PHONEBOOK_HPP__
 
 #include <iomanip>
 #include <iostream>
@@ -22,11 +22,11 @@
 class PhoneBook
 {
 public:
-	PhoneBook();
-	~PhoneBook();
+	PhoneBook(void);
+	~PhoneBook(void);
 
-	bool addContact();
-	void previewContacts() const;
+	bool addContact(void);
+	void previewContacts(void) const;
 	void showContactInformations(int index) const;
 
 private:
