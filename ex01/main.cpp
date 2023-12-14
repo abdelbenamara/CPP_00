@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 00:18:11 by abenamar          #+#    #+#             */
-/*   Updated: 2023/12/06 18:40:04 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/12/14 13:04:45 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ static void runPhoneBook(PhoneBook &phoneBook)
 	return;
 }
 
-int main()
+int main(void)
 {
 	PhoneBook phoneBook;
 
