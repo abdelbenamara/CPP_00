@@ -6,23 +6,23 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:08:51 by abenamar          #+#    #+#             */
-/*   Updated: 2023/12/12 09:38:00 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/12/14 12:59:43 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook() : oldestIndex(0)
+PhoneBook::PhoneBook(void) : oldestIndex(0)
 {
 	return;
 }
 
-PhoneBook::~PhoneBook()
+PhoneBook::~PhoneBook(void)
 {
 	return;
 }
 
-bool PhoneBook::addContact()
+bool PhoneBook::addContact(void)
 {
 	Contact &contact = this->wipeContact(this->oldestIndex);
 
@@ -54,7 +54,7 @@ bool PhoneBook::addContact()
 	return false;
 }
 
-void PhoneBook::previewContacts() const
+void PhoneBook::previewContacts(void) const
 {
 	if (!std::cin || std::cin.eof())
 		std::cout << std::endl;
