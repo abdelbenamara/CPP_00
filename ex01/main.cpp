@@ -6,10 +6,12 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 00:18:11 by abenamar          #+#    #+#             */
-/*   Updated: 2023/12/14 13:04:45 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/12/18 21:43:25 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
+#include <string>
 #include "PhoneBook.hpp"
 
 static int stringToIndex(std::string str)
