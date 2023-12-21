@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:08:51 by abenamar          #+#    #+#             */
-/*   Updated: 2023/12/21 13:01:21 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/12/21 13:33:38 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void PhoneBook::previewContacts(void) const
 	}
 }
 
-void PhoneBook::showContactInformations(int index) const
+void PhoneBook::showContactInformations(int const index) const
 {
 	if (!std::cin || std::cin.eof())
 		std::cout << std::endl;
@@ -114,7 +114,7 @@ void PhoneBook::showContactInformations(int index) const
 	return;
 }
 
-Contact &PhoneBook::wipeContact(int index)
+Contact &PhoneBook::wipeContact(int const index)
 {
 	this->contacts[index].setFirstName("");
 	this->contacts[index].setLastName("");
@@ -125,7 +125,7 @@ Contact &PhoneBook::wipeContact(int index)
 	return this->contacts[index];
 }
 
-std::string PhoneBook::askForContactInfo(std::string const label) const
+std::string PhoneBook::askForContactInfo(std::string const &label) const
 {
 	std::locale loc;
 	std::string line;
@@ -146,7 +146,7 @@ std::string PhoneBook::askForContactInfo(std::string const label) const
 	return line;
 }
 
-std::string PhoneBook::truncate(std::string const str) const
+std::string PhoneBook::truncate(std::string const &str) const
 {
 	if (str.length() <= 10)
 		return str;
@@ -154,8 +154,8 @@ std::string PhoneBook::truncate(std::string const str) const
 	return str.substr(0, 9) + ".";
 }
 
-void PhoneBook::showContactInfo(std::string const label,
-								std::string const info) const
+void PhoneBook::showContactInfo(std::string const &label,
+								std::string const &info) const
 {
 	std::cout << std::right << std::setfill(' ');
 	std::cout << std::setw(14) << label << ": \"";
