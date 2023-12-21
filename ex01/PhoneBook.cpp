@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:08:51 by abenamar          #+#    #+#             */
-/*   Updated: 2023/12/14 12:59:43 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/12/21 13:01:21 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ bool PhoneBook::addContact(void)
 {
 	Contact &contact = this->wipeContact(this->oldestIndex);
 
-	contact.setFirstName(this->getContactInfo("first name"));
-	contact.setLastName(this->getContactInfo("last name"));
-	contact.setNickname(this->getContactInfo("nickname"));
-	contact.setPhoneNumber(this->getContactInfo("phone number"));
-	contact.setDarkestSecret(this->getContactInfo("darkest secret"));
+	contact.setFirstName(this->askForContactInfo("first name"));
+	contact.setLastName(this->askForContactInfo("last name"));
+	contact.setNickname(this->askForContactInfo("nickname"));
+	contact.setPhoneNumber(this->askForContactInfo("phone number"));
+	contact.setDarkestSecret(this->askForContactInfo("darkest secret"));
 
 	if (contact.isValid())
 	{
@@ -125,7 +125,7 @@ Contact &PhoneBook::wipeContact(int index)
 	return this->contacts[index];
 }
 
-std::string PhoneBook::getContactInfo(std::string const label) const
+std::string PhoneBook::askForContactInfo(std::string const label) const
 {
 	std::locale loc;
 	std::string line;
@@ -146,18 +146,18 @@ std::string PhoneBook::getContactInfo(std::string const label) const
 	return line;
 }
 
-void PhoneBook::showContactInfo(std::string const label,
-								std::string const info) const
-{
-	std::cout << std::right << std::setfill(' ');
-	std::cout << std::setw(14) << label << ": \"";
-	std::cout << info << "\"" << std::endl;
-}
-
 std::string PhoneBook::truncate(std::string const str) const
 {
 	if (str.length() <= 10)
 		return str;
 
 	return str.substr(0, 9) + ".";
+}
+
+void PhoneBook::showContactInfo(std::string const label,
+								std::string const info) const
+{
+	std::cout << std::right << std::setfill(' ');
+	std::cout << std::setw(14) << label << ": \"";
+	std::cout << info << "\"" << std::endl;
 }
