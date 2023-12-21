@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:00:58 by abenamar          #+#    #+#             */
-/*   Updated: 2023/12/14 13:00:45 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/12/21 13:01:21 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ private:
 	Contact contacts[8];
 
 	Contact &wipeContact(int index);
-	std::string getContactInfo(std::string const label) const;
+	std::string askForContactInfo(std::string const label) const;
+	std::string truncate(std::string const str) const;
 	void showContactInfo(std::string const label,
 						 std::string const info) const;
-	std::string truncate(std::string const str) const;
 };
 
 #endif
