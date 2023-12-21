@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 10:16:27 by abenamar          #+#    #+#             */
-/*   Updated: 2023/12/14 12:58:19 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/12/21 12:54:45 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Contact::~Contact(void)
 	return;
 }
 
-std::string Contact::getFirstName(void) const
+std::string const &Contact::getFirstName(void) const
 {
 	return this->firstName;
 }
@@ -38,7 +38,7 @@ void Contact::setFirstName(std::string firstName)
 	return;
 }
 
-std::string Contact::getLastName(void) const
+std::string const &Contact::getLastName(void) const
 {
 	return this->lastName;
 }
@@ -50,7 +50,7 @@ void Contact::setLastName(std::string lastName)
 	return;
 }
 
-std::string Contact::getNickname(void) const
+std::string const &Contact::getNickname(void) const
 {
 	return this->nickname;
 }
@@ -62,7 +62,7 @@ void Contact::setNickname(std::string nickname)
 	return;
 }
 
-std::string Contact::getPhoneNumber(void) const
+std::string const &Contact::getPhoneNumber(void) const
 {
 	return this->phoneNumber;
 }
@@ -74,7 +74,7 @@ void Contact::setPhoneNumber(std::string phoneNumber)
 	return;
 }
 
-std::string Contact::getDarkestSecret(void) const
+std::string const &Contact::getDarkestSecret(void) const
 {
 	return this->darkestSecret;
 }
