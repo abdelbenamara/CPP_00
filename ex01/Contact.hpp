@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 10:25:09 by abenamar          #+#    #+#             */
-/*   Updated: 2023/12/14 13:00:37 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/12/21 12:53:51 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ public:
 	Contact(void);
 	~Contact(void);
 
-	std::string getFirstName(void) const;
+	std::string const &getFirstName(void) const;
 	void setFirstName(std::string firstName);
-	std::string getLastName(void) const;
+	std::string const &getLastName(void) const;
 	void setLastName(std::string lastName);
-	std::string getNickname(void) const;
+	std::string const &getNickname(void) const;
 	void setNickname(std::string nickname);
-	std::string getPhoneNumber(void) const;
+	std::string const &getPhoneNumber(void) const;
 	void setPhoneNumber(std::string phoneNumber);
-	std::string getDarkestSecret(void) const;
+	std::string const &getDarkestSecret(void) const;
 	void setDarkestSecret(std::string darkestSecret);
 	bool isValid(void) const;
 
